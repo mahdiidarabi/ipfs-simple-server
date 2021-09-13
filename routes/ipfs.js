@@ -6,13 +6,13 @@ const ipfs = ipfsClient.create('http://localhost:5001');
 var router = express.Router();
 
 /* GET ipfs node status. */
-router.get('/status', function(req, res, next) {
-    res.send(ipfs.stats);
+router.get('/status', async (req, res) => {
+    return res.send(ipfs.stats);
 });
 
 /* GET ipfs content by its hash. */
-router.get('/:id', function(req, res, next) {
-    res.send(ipfs.cat(id));
+router.get('/:id', async (req, res) => {
+    return res.send(ipfs.cat(id));
 });
 
 /* GET ipfs content by its hash. */
@@ -21,7 +21,7 @@ router.post('/add', async (req, res) => {
 
     const fileHash = await addFile(data);
 
-    res.send(`https://ipfs.io/ipfs/${ fileHash }`);
+    return res.send(`https://ipfs.io/ipfs/${ fileHash }`);
 });
 
 
