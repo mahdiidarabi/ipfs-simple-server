@@ -13,5 +13,8 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "yarn": "^1.22.11"
+  },
+  "devDependencies": {
+    "ipfs-http-client": "^52.0.3"
   }
 }
